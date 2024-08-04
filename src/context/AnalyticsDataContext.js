@@ -13,8 +13,7 @@ export const AnalyticsDataProvider = ({ children }) => {
   const apiSecret = process.env.REACT_APP_API_KEY;
   const [loader, setLoader] = useState(false);
 
-  console.log(apiUrl,apiSecret,"apii");
-  const getGraphData = async (lte, gte) => {
+    const getGraphData = async (lte, gte) => {
     const response = await fetch(`${apiUrl}/myquery`, {
       headers: {
         "Content-Type": "application/json",
@@ -26,6 +25,7 @@ export const AnalyticsDataProvider = ({ children }) => {
     const result = await response.json();
     console.log(result, "result");
     setLoader(false);
+    return result;
   };
 
   useEffect(() => {
